@@ -1,31 +1,17 @@
 <template>
-  <div class="dashboard-container">
-    <component :is="currentRole" />
-  </div>
+  <div class="dashboard-container">1234455</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import adminDashboard from './admin'
-import editorDashboard from './editor'
-
+import store from '@/store';
 export default {
   name: 'Dashboard',
-  components: { adminDashboard, editorDashboard },
-  data() {
-    return {
-      currentRole: 'adminDashboard'
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'roles'
-    ])
-  },
   created() {
-    if (!this.roles.includes('admin')) {
-      this.currentRole = 'editorDashboard'
-    }
+    // store.dispatch('user/getInfo').then(res => {
+    //   console.log(123);
+    //   console.log(res);
+    //   console.log(store.getters.roles);
+    // })
   }
-}
+};
 </script>
